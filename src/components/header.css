@@ -1,0 +1,53 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.header input,
+.header select {
+  height: 40px;
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+
+.header input {
+  width: 220px;
+}
+
+.header select {
+  width: 150px;
+}
+
+.header button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0 15px;
+  height: 40px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.header button:hover {
+  background-color: #0056b3;
+}
