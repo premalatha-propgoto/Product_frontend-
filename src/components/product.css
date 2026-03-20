@@ -1,14 +1,11 @@
-/* Same as your original HTML */
-
-#products {
-  display: flex;
-  flex-wrap: wrap;
+.products {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 15px;
   margin-top: 80px;
 }
-
 .product-box {
-  width: 160px;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -26,7 +23,8 @@
   border-radius: 4px;
 }
 
-.delete-icon, .edit-icon {
+.delete-icon,
+.edit-icon {
   position: absolute;
   bottom: 5px;
   font-size: 16px;
@@ -67,7 +65,7 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
-  position: relative;   /* VERY IMPORTANT */
+  position: relative;
   cursor: pointer;
   background: white;
 }
@@ -79,7 +77,6 @@
   border-radius: 4px;
 }
 
-/* Edit & Delete Icons – missing in your CSS! */
 .edit-icon,
 .delete-icon {
   position: absolute;

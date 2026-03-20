@@ -24,7 +24,6 @@ export default function EditModal({ product, closeModal, saveEdit }) {
   }, [product]);
 
   const handleSave = () => {
-    // Validate required fields
     const newErrors = {};
     if (!id) newErrors.id = "ID is required";
     if (!title) newErrors.title = "Title is required";
@@ -32,9 +31,7 @@ export default function EditModal({ product, closeModal, saveEdit }) {
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length > 0) return; // stop if validation fails
-
-    // Call parent save function
+    if (Object.keys(newErrors).length > 0) return;
     saveEdit({
       id,
       title,

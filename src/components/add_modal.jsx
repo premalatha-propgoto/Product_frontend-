@@ -14,7 +14,6 @@ export default function AddModal({ closeModal, saveAdd }) {
   const [errors, setErrors] = useState({});
 
   const handleAdd = () => {
-    // Validate required fields
     const newErrors = {};
     if (!id) newErrors.id = "ID is required";
     if (!price) newErrors.price = "Price is required";
@@ -22,8 +21,6 @@ export default function AddModal({ closeModal, saveAdd }) {
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
-
-    // Call parent save function
     saveAdd({
       id,
       title,

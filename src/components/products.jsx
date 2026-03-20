@@ -24,7 +24,7 @@ export default function Products() {
 
   const [snackbar, setSnackbar] = useState({ show: false, message: "" });
 
-  const limit = 18;
+  const limit = 15;
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -39,8 +39,6 @@ export default function Products() {
 
       setProducts(res.data.data);
       setTotalPages(res.data.totalPages);
-
-      // Extract unique categories from all products
       const uniqueCategories = [
         ...new Set(res.data.data.map((p) => p.category)),
       ];
@@ -53,10 +51,6 @@ export default function Products() {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
-
-  /* ----------------------------
-        MODAL HANDLERS
-  ----------------------------- */
   const openAddModal = () => setAddModalOpen(true);
   const closeAddModal = () => setAddModalOpen(false);
 
@@ -69,9 +63,6 @@ export default function Products() {
     setEditModalOpen(false);
   };
 
-  /* ----------------------------
-        DELETE PRODUCT
-  ----------------------------- */
   const deleteProduct = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/product/${id}`);
@@ -82,9 +73,6 @@ export default function Products() {
     }
   };
 
-  /* ----------------------------
-        ADD PRODUCT SAVE HANDLER
-  ----------------------------- */
   const saveAddProduct = async (newProduct) => {
     try {
       await axios.post("http://localhost:5000/product", newProduct);
@@ -96,9 +84,6 @@ export default function Products() {
     }
   };
 
-  /* ----------------------------
-        EDIT PRODUCT SAVE HANDLER
-  ----------------------------- */
   const saveEditProduct = async (updatedProduct) => {
     try {
       await axios.post(
@@ -115,7 +100,6 @@ export default function Products() {
 
   return (
     <div>
-      {/* HEADER */}
       <Header
         search={search}
         setSearch={setSearch}
@@ -124,8 +108,6 @@ export default function Products() {
         categories={categories}
         openAddModal={openAddModal}
       />
-
-      {/* PRODUCT LIST */}
       <div className="container" style={{ marginTop: "90px" }}>
         <ProductList
           products={products}
@@ -133,20 +115,15 @@ export default function Products() {
           deleteProduct={deleteProduct}
         />
       </div>
-
-      {/* PAGINATION */}
       <Pagination
         totalPages={totalPages}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
-
-      {/* ADD MODAL */}
       {addModalOpen && (
         <AddModal closeModal={closeAddModal} saveAdd={saveAddProduct} />
       )}
 
-      {/* EDIT MODAL */}
       {editModalOpen && editingProduct && (
         <EditModal
           product={editingProduct}
@@ -155,7 +132,6 @@ export default function Products() {
         />
       )}
 
-      {/* SNACKBAR */}
       <Snackbar
         show={snackbar.show}
         message={snackbar.message}

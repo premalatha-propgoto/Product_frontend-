@@ -8,8 +8,6 @@ export default function ProductItem({ product, openEdit, deleteProduct }) {
       <h4>{product.title}</h4>
       <p>{product.category}</p>
       <p>${product.price}</p>
-
-      {/* Text buttons for edit and delete */}
       <div className="product-buttons">
         <button
           className="edit-btn"

@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const productId = new URLSearchParams(window.location.search).get("id");
-
-  /* ------------------ DELETE PRODUCT ------------------ */
   const deleteProduct = (id) => {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
 
@@ -14,12 +12,10 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then(() => {
         alert("Product deleted successfully");
-        window.location.href = "index.html"; // adjust for React routing
+        window.location.href = "index.html";
       })
       .catch((err) => console.error(err));
   };
-
-  /* ------------------ STORE VIEW ------------------ */
   const storeView = (id, title) => {
     fetch("http://localhost:5000/view", {
       method: "POST",
@@ -30,8 +26,6 @@ const ProductDetails = () => {
       }),
     });
   };
-
-  /* ------------------ LOAD PRODUCT ------------------ */
   const loadProduct = (id) => {
     fetch(`http://localhost:5000/get_products/${id}`)
       .then((res) => res.json())
@@ -68,7 +62,7 @@ const ProductDetails = () => {
       <br />
 
       <div style={{ position: "relative" }}>
-        {/* Delete Icon */}
+
         <span
           onClick={() => deleteProduct(product.id)}
           style={{
@@ -82,8 +76,6 @@ const ProductDetails = () => {
         >
           🗑️
         </span>
-
-        {/* Dummy image */}
         <img src="default.jpg" alt="product" style={{ width: "300px" }} />
 
         <h3>{product.title}</h3>

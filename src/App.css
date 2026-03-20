@@ -1,4 +1,3 @@
-/* ------------------ BODY & GLOBAL ------------------ */
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -6,12 +5,13 @@ body {
   background: #f9f9f9;
 }
 
-input, select, button {
+input,
+select,
+button {
   font-family: inherit;
   font-size: 14px;
 }
 
-/* ------------------ HEADER ------------------ */
 .header {
   position: fixed;
   top: 0;
@@ -58,31 +58,30 @@ input, select, button {
   color: white;
   cursor: pointer;
 }
+
 .header button:hover {
   background-color: #0056b3;
 }
 
-/* ------------------ PRODUCT LIST ------------------ */
-#products {
-  display: flex;
-  flex-wrap: wrap;
+  #products {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 15px;
-  margin-top: 100px; /* leave space for header */
+  margin-top: 100px;
 }
 
-.product-box {
-  width: 160px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+
+/* .product-box {
+  width: 250px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  position: relative; /* IMPORTANT for absolute icons */
+  gap: 8px;
   background: white;
-  cursor: pointer;
-  transition: box-shadow 0.2s ease;
-}
+} */
+
 .product-box:hover {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
@@ -109,11 +108,8 @@ input, select, button {
   text-transform: capitalize;
 }
 
-/* ------------------ EDIT & DELETE ICONS ------------------ */
-/* ------------------ PRODUCT BOX ------------------ */
-/* ------------------ PRODUCT BOX ------------------ */
 .product-box {
-  width: 180px;                  /* width of each product card */
+  width: 280px;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -121,19 +117,18 @@ input, select, button {
   flex-direction: column;
   gap: 8px;
   background: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .product-box:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* ------------------ PRODUCT IMAGE ------------------ */
 .product-box img {
   width: 100%;
-  height: 120px;                 /* tall enough to display image nicely */
+  height: 120px;
   object-fit: cover;
   border-radius: 6px;
   transition: transform 0.2s ease;
@@ -143,7 +138,6 @@ input, select, button {
   transform: scale(1.05);
 }
 
-/* ------------------ EDIT & DELETE TEXT BUTTONS ------------------ */
 .product-buttons {
   display: flex;
   justify-content: space-between;
@@ -151,8 +145,9 @@ input, select, button {
   margin-top: 8px;
 }
 
-.edit-btn, .delete-btn {
-  flex: 1;                        /* equal width buttons */
+.edit-btn,
+.delete-btn {
+  flex: 1;
   padding: 6px 0;
   font-size: 13px;
   border: none;
@@ -178,13 +173,13 @@ input, select, button {
 .delete-btn:hover {
   background-color: #a71d2a;
 }
-/* ------------------ PAGINATION ------------------ */
+
 
 
 .pagination {
   display: flex;
   gap: 10px;
-  justify-content: center; /* optional, centers the buttons */
+  justify-content: center;
   margin-top: 20px;
 }
 
@@ -207,7 +202,7 @@ input, select, button {
   color: white;
   border-color: #333;
 }
-/* ------------------ MODALS ------------------ */
+
 .modal {
   display: flex;
   position: fixed;
@@ -240,7 +235,8 @@ input, select, button {
   cursor: pointer;
 }
 
-.modal input, .modal textarea {
+.modal input,
+.modal textarea {
   width: 100%;
   margin: 5px 0;
   padding: 6px;
@@ -264,8 +260,8 @@ input, select, button {
   background-color: #0056b3;
 }
 
-/* hide icons inside modal (optional) */
-.modal .edit-icon, .modal .delete-icon {
+.modal .edit-icon,
+.modal .delete-icon {
   display: none;
 }
 
@@ -274,11 +270,11 @@ input, select, button {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #4caf50; /* green for success */
+  background-color: #4caf50;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   font-size: 16px;
   z-index: 2000;
   animation: slideDown 0.3s ease;
@@ -289,6 +285,7 @@ input, select, button {
     opacity: 0;
     transform: translateX(-50%) translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
