@@ -9,10 +9,7 @@ export default function ProductItem({ product, openEdit, deleteProduct }) {
       <p>{product.category}</p>
       <p>${product.price}</p>
       <div className="product-buttons">
-        <button
-          className="edit-btn"
-          onClick={() => openEdit(product)}
-        >
+        <button className="edit-btn" onClick={() => openEdit(product)}>
           Edit
         </button>
 

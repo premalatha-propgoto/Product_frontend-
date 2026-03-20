@@ -53,11 +53,7 @@ export default function EditModal({ product, closeModal, saveEdit }) {
         <h3>Edit Product</h3>
 
         <label>ID*</label>
-        <input
-          type="text"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-        />
+        <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
         {errors.id && <span style={{ color: "red" }}>{errors.id}</span>}
 
         <label>Title*</label>

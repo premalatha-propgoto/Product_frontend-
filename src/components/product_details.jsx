@@ -4,7 +4,8 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const productId = new URLSearchParams(window.location.search).get("id");
   const deleteProduct = (id) => {
-    if (!window.confirm("Are you sure you want to delete this product?")) return;
+    if (!window.confirm("Are you sure you want to delete this product?"))
+      return;
 
     fetch(`http://localhost:5000/product/${id}`, {
       method: "DELETE",
@@ -62,7 +63,6 @@ const ProductDetails = () => {
       <br />
 
       <div style={{ position: "relative" }}>
-
         <span
           onClick={() => deleteProduct(product.id)}
           style={{

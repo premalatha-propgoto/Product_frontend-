@@ -88,7 +88,7 @@ export default function Products() {
     try {
       await axios.post(
         `http://localhost:5000/product/${updatedProduct.id}`,
-        updatedProduct
+        updatedProduct,
       );
       fetchProducts();
       closeEditModal();

@@ -17,7 +17,8 @@ export default function AddModal({ closeModal, saveAdd }) {
     const newErrors = {};
     if (!id) newErrors.id = "ID is required";
     if (!price) newErrors.price = "Price is required";
-    if (!discount && discount !== 0) newErrors.discount = "Discount is required";
+    if (!discount && discount !== 0)
+      newErrors.discount = "Discount is required";
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
@@ -84,7 +85,9 @@ export default function AddModal({ closeModal, saveAdd }) {
           value={discount}
           onChange={(e) => setDiscount(e.target.value)}
         />
-        {errors.discount && <span style={{ color: "red" }}>{errors.discount}</span>}
+        {errors.discount && (
+          <span style={{ color: "red" }}>{errors.discount}</span>
+        )}
 
         <input
           type="number"
